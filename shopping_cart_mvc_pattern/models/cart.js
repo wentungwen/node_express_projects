@@ -9,7 +9,8 @@ module.exports = class Cart {
     fs.readFile(p, (err, fileContent) => {
       let cart = { products: [], totalPrice: 0 };
       if (!err) {
-        cart = JDON.parse(fileContent);
+        console.log(JSON.parse(fileContent));
+        cart = JSON.parse(fileContent);
       }
     });
 
@@ -32,7 +33,7 @@ module.exports = class Cart {
     }
     cart.totalPrice = cart.totalPrice + productPrice;
     fs.writeFile(p, JSON.stringify(cart), (err) => {
-      console.log(err );
+      console.log(err);
     });
   }
 };

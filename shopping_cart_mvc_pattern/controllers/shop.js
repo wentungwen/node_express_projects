@@ -29,7 +29,7 @@ exports.postCart = (req, res, next) => {
   ProductModel.findById(prodId, (product) => {
     CartModel.addProduct(prodId, product.price);
   });
-  res.redirect("/")
+  res.redirect("/cart")
 };
 
 exports.getIndex = (req, res, next) => {
